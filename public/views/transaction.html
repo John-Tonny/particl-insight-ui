@@ -3,7 +3,7 @@
   <div class="secondary_navbar hidden-xs hidden-sm" scroll data-ng-class="{'hidden': !secondaryNavbar}" data-ng-show="tx.txid" data-ng-init="hideSNavbar=0">
     <div class="container" data-ng-if="!hideSNavbar">
       <div class="col-md-6 col-lg-7 text-left">
-          <h3 translate>Transaction</h3>
+          <h3 translate>交易</h3>
           <div class="ellipsis"> 
             <small>{{tx.txid}}</small> 
             <span class="btn-copy" clip-copy="tx.txid"></span>
@@ -27,7 +27,7 @@
     </div>
   </div>
   <div data-ng-if="tx.txid">
-    <h1><span translate>Transaction</span> 
+    <h1><span translate>交易</span> 
       <small data-ng-show="from_vin || from_vout">
         <span data-ng-show="from_vin" translate>Input</span> 
         <span data-ng-show="from_vout" translate>Output</span> 
@@ -36,38 +36,38 @@
     </h1>
     <div class="progress progress-striped active" data-ng-if="!tx.txid">
       <div class="progress-bar progress-bar-info" style="width: 100%">
-        <span translate>Loading Transaction Details</span> <span class="loader-gif"></span>
+        <span translate>正在装载详细交易</span> <span class="loader-gif"></span>
       </div>
     </div>
     <div data-ng-if="tx.txid">
       <div class="well well-sm ellipsis">
-        <strong translate>Transaction</strong> 
+        <strong translate>交易</strong> 
         <span class="txid text-muted">{{tx.txid}}</span>
         <span class="btn-copy" clip-copy="tx.txid"></span>
       </div>
-      <h2 translate>Summary</h2>
+      <h2 translate>概述</h2>
       <table class="table" style="table-layout: fixed">
         <tbody>
         <tr>
-          <td><strong translate>Size</strong></td>
+          <td><strong translate>大小</strong></td>
           <td class="text-muted text-right">{{tx.size}} (bytes)</td>
         </tr>
         <tr data-ng-show="tx.fees && tx.fees > 0">
-          <td><strong translate>Fee Rate</strong></td>
+          <td><strong translate>费率</strong></td>
           <td class="text-muted text-right">{{$root.currency.getConvertion((tx.fees * 1000) / tx.size) + ' per kB' || ((tx.fees * 1000) / tx.size) + 'PART per kB'}}</td>
         </tr>
         <tr>
-          <td><strong translate>Received Time</strong></td>
+          <td><strong translate>出块时间</strong></td>
           <td data-ng-show="tx.time" class="text-muted text-right">{{tx.time * 1000|date:'medium'}}</td>
           <td data-ng-show="!tx.time" class="text-muted text-right">N/A</td>
         </tr>
         <tr>
-          <td><strong translate>Staked Time</strong></td>
+          <td><strong translate>收益时间</strong></td>
           <td data-ng-show="tx.blocktime" class="text-muted text-right">{{tx.blocktime * 1000|date:'medium'}}</td>
           <td data-ng-show="!tx.blocktime" class="text-muted text-right">N/A</td>
         </tr>
         <tr>
-          <td><strong translate>Included in Block</strong></td>
+          <td><strong translate>所属区块</strong></td>
           <td data-ng-show="tx.blockhash" class="text-muted text-right"> 
             <div class="ellipsis">
               <a href="block/{{tx.blockhash}}">{{tx.blockhash}}</a>
@@ -75,7 +75,7 @@
           <td data-ng-show="!tx.blockhash" class="text-muted text-right">Unconfirmed</td>
         </tr>
         <tr data-ng-show="tx.locktime">
-          <td><strong>LockTime</strong></td>
+          <td><strong>锁定时间</strong></td>
           <td class="text-muted text-right">{{tx.locktime}}</td>
         </tr>
         <tr data-ng-show="tx.isCoinBase">
@@ -90,7 +90,7 @@
         </tbody>
       </table>
     </div>
-    <h2 translate>Details</h2>
+    <h2 translate>详述</h2>
     <div class="block-tx" data-ng-if="tx.txid">
       <div data-ng-include src="'views/transaction/tx.html'"></div>
     </div>

@@ -7,14 +7,14 @@ angular.module('insight.system').controller('HeaderController',
     $rootScope.currency = {
       factor: 1,
       bitstamp: 0,
-      symbol: 'PART'
+      symbol: 'VP'
     };
 
     $scope.menu = [{
-      'title': 'Blocks',
+      'title': '区块',
       'link': 'blocks'
     }, {
-      'title': 'Status',
+      'title': '状态',
       'link': 'status'
     }];
 
